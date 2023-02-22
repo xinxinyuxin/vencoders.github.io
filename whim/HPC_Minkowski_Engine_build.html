@@ -1,0 +1,46 @@
+<link href="./retro.css" rel="stylesheet"></link>
+<h1>Build NVIDIA Minkowski Engine on NYU HPC</h1>
+<p><em><strong>Tested in a pip environment.</strong></em></p>
+<h2>1. Compile OpenBlas</h2>
+<p>Download source code from <a href="https://github.com/xianyi/OpenBLAS/releases">https://github.com/xianyi/OpenBLAS/releases</a>, and save it as, say <code>OpenBLAS-0.3.18-x64.zip</code>.</p>
+<p>In the unzipped directory, build and install openblas by</p>
+<pre><code>make BINARY=64 FC=gfortran USE_THREAD=4
+make PREFIX=$HOME/openblas install
+</code></pre>
+<p>Note that this will install libopenblas in the <code>openblas</code> directory at $HOME, where you are surely permitted to write and the data will not be flushed.</p>
+<h2>2. Compile numpy with OpenBlas</h2>
+<p>Download numpy source code from the GitHub repo, say <a href="https://github.com/numpy/numpy/tree/v1.21.4">https://github.com/numpy/numpy/tree/v1.21.4</a>. Unzip it.</p>
+<p>Uninstall numpy originally installed by pip:</p>
+<pre><code>pip uninstall numpy
+</code></pre>
+<p>Make a good <code>site.cfg</code> configuration file by renaming <code>site.cfg.example</code> in the directory to <code>site.cfg</code> and edit the file by adding the following lines:</p>
+<pre><code>[DEFAULT]
+library_dirs = /path/to/openblas/lib
+include_dirs = /path/to/openblas/include
+
+[atlas]
+atlas_libs = openblas
+libraries = openblas
+
+[openblas]
+libraries = openblas
+library_dirs = /path/to/openblas/lib
+include_dirs = /path/to/openblas/include
+</code></pre>
+<p>If you followed the commands above, <code>/path/to/openblas</code> should be equal to what you get by interpreting <code>$HOME/openblas</code>.</p>
+<p>Build and install numpy with:</p>
+<pre><code>python setup.py build --fcompiler=gnu95
+python setup.py install
+</code></pre>
+<h2>3. Compile Minkowski Engine</h2>
+<p><em><strong>Note: this should be done with a CUDA environment. You may want to switch to a GPU node.</strong></em></p>
+<p>Setup environments:</p>
+<pre><code>export CPLUS_INCLUDE_PATH=$C_INCLUDE_PATH:&quot;$HOME/openblas/include&quot;
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:&quot;$HOME/openblas/include&quot;
+export LD_LIBRARY_PATH=&quot;$HOME/openblas/lib&quot;:$LD_LIBRARY_PATH
+export LIBRARY_PATH=&quot;$HOME/openblas/lib&quot;:$LIBRARY_PATH
+</code></pre>
+<p>Build:</p>
+<pre><code>pip install -U MinkowskiEngine --install-option=&quot;--blas=openblas&quot; --install-option=&quot;--blas_library_dirs=/path/to/openblas/lib&quot; -v --no-deps
+</code></pre>
+<p><code>/path/to/openblas</code> should be specified.</p>
