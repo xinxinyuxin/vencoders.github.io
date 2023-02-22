@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <link rel="icon" type="image/x-icon" href="images/YH.png" />
+  <title>hfcgcnn</title>
+  <!--Import Google Icon Font-->
+
+  <!--<link href="http://fonts.useso.com/icon?family=Material+Icons" rel="stylesheet">-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="css/main.css">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <style>
+    body
+    {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .vertical-nav
+    {
+      margin: 0;
+      position: fixed;
+      width: 300px;
+      /*background-color: #343131;*/
+      min-height: 100%;
+      background-image: url("images/vertical_Nov19.jpg");
+      background-repeat: round;
+    }
+
+    .profile-block
+    {
+      position: relative;
+      height: 300px;
+      /*background-color: #324D5C;*/
+
+    }
+    .profile-block-sm
+    {
+      position: relative;
+      height: 200px;
+      /*background-color: #324D5C;*/
+
+    }
+
+    .profile
+    {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      margin-left: 30px;
+
+      border: solid 5px #F4D03F;
+    }
+
+    .profile-sm
+    {
+      /*position: absolute;*/
+      /*top: 50%;*/
+      /*left: 50%;*/
+      /*transform: translateX(50%);*/
+      border-radius: 50%;
+      margin: auto;
+
+      border: solid 5px #F4D03F;
+    }
+
+    .logo-link
+    {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .card-content
+    {
+      padding: 0 !important;
+    }
+
+    .card-title
+    {
+      background-color: #FBD8B0;
+      padding: 12px;
+    }
+
+    p
+    {
+      line-height: 150%;
+    }
+    li
+    {
+      padding-bottom: 10px;
+    }
+    strong
+    {
+      font-weight: bolder;
+    }
+    .project-item
+    {
+    }
+    .project-logo
+    {
+    }
+    .authors{
+      text-align: center;
+      width: 100%;
+      margin: auto;
+      font-size: 12pt;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    .author{
+      font-weight: bold;
+      display: inline;
+      padding: 0 1em;
+    }
+    h3{
+      font-size: xx-large;
+      display: block;
+      /*font-size: 1.5em;*/
+      margin-block-start: 0.83em;
+      margin-block-end: 0.83em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+    }
+    .bibtex {
+      padding-left: 20px;
+      font-family: Courier New, Courier, 'gandhi_sansregular', monospace;
+      white-space: pre;
+    }
+    ul.marked {list-style-type: circle !important;}
+    ul li::marker {
+      color: darkslategrey;
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+
+<div class="">
+  <div style="">
+    <div class="container">
+      <div class="">
+        <div class="row">
+          <div class="col s12 m12 l10 offset-l1">
+            <div class="title">
+              <h2 class="center" style="margin-top: 120px; font-size: 32pt">
+                High-frequency guided CNN for video compression artifacts reduction
+              </h2>
+              <!-- <p class="center" style="font-size: large"><a href="https://arxiv.org/abs/2002.03711">[ arxiv.org/abs/2002.03711 ]</a> -->
+                <p class="center" style="font-size: large"><a href="https://github.com/Vencoders/HFCG-CNN">[ Code ]</a>
+            </div>
+           <div class="authors">
+<!-- 			  <div class="author"><a href="https://huzi96.github.io/">Yueyu Hu</a></div><br class="hide-on-med-and-up"> -->
+              <div class="author">Li Yu</a></div><br class="hide-on-med-and-up">
+              <div class="author">Wenshuai Chang</a></div><br class="hide-on-med-and-up">
+              <div class="author">Qingshan Liu</a></div><br class="hide-on-med-and-up">
+			  <div class="author">Moncef Gabbouj</a></div><br class="hide-on-med-and-up">
+            </div>
+			<div class="abstract">
+			  <h3 class="center">Abstract</h3>
+			  <ul style="font-size: 13pt; text-align: justify">
+			    <li>
+			      <div>
+			        <i class="material-icons tiny cyan-text">grade</i>
+			        In this paper, we propose a high-frequency guided CNN for video compression artifacts reduction. In the proposed method, high frequency component in Y channel is extracted and used to guide the quality enhancement of all Y, U, V channels. As high frequency component contains the edge and contour information of the objects in the image, which is of vital importance to both subjective and objective quality. In general, the proposed method consists of two modules: the high frequency guidance module and the quality enhancement module. The high-frequency guidance module uses multiple octave convolutions to extract the high-frequency component in Y channel and then fuse it into the features of Y, U, and V channels. While in the quality enhancement module, multiple CNN residual blocks are used for the quality enhancement of Y, U, and V channels. The proposed method was integrated into both HM-16.22 and VTM-16.0. The results on the JVET test sequence under All Intra configuration shows the effectiveness of the proposed method. Compared with HEVC, the proposed method achieves the average BD-rate reductions of -12.3%, -22.7% and -23.5% for Y, U and V channels respectively. Compared with VVC, the average BD-rate reductions are -6.7%, -12.3% and -13.2% correspondingly. 
+			      </div>
+			        </li>
+			  </ul>
+			</div>
+            <!-- <div class="abstract">
+              <h3 class="center">Highlights</h3>
+              <ul style="font-size: 13pt; text-align: justify">
+                <li>
+                  <div>
+                    <i class="material-icons tiny cyan-text">grade</i>
+                    We introduce reference-based SR in down/up-sampling based video coding method, where target and reference images are not required to be texture-aligned as required in existing methods.
+                  </div>
+                    </li>
+                <li>
+                  <div>
+                    <i class="material-icons tiny  cyan-text">grade</i>
+                    We proposed an adaptive group of pictures (GOP) method to automatically decide the adaptive sampling scheme.
+                  </div>
+                    </li>
+                <li>
+                  <div>
+                    <i class="material-icons tiny  cyan-text">grade</i>
+                   The neural texture transfer model for reference-based SR produces realistic up-sampled frame at the decoding end.
+                  </div>
+                     </li>
+              </ul>
+            </div> -->
+            <div class="experiment">
+
+              <div class="row">
+                <h3 class="center">Network Architecture</h3>
+                <div class="col l12 m12 s12">
+                  <img src="images/frame4.png" class="responsive-img">
+                </div>
+
+                <div class="col l12 m12 s12">
+                  <p style="text-align: justify"><i class="material-icons tiny cyan-text">grade</i> Overview of the proposed High-frequency guided CNN (HFCG-CNN). Given a compressed video sequence, for each frame Fc, the high-frequency block (HFB) extracts the high frequency(HF) information in the Y component, and then fuse HF into the features of Y, U and V. The yellow and blue lines in High Frequency guidance Module represent LF and HF information extracted by HFB respectively. Then, the quality enhancement module narrows the difference from the groundtruth Fgt by residual learning to obtain the final enhanced result Fe. (a) shows the structure of Residual Block, and (b) shows the structure of HFB. 
+                  </p>
+                </div>
+              </div>
+			  
+             <div class="row">
+                <h3 class="center">Results</h3>
+                <div class="col l6 offset-l3 m8 offset-m2 s10 offset-s1">
+                  <img src="images/frame5.png" class="responsive-img">
+				  <img src="images/frame6.png" class="responsive-img">
+                </div>
+			
+			
+				  
+              <div class="row">
+                <div class="col l12 m12 s12">
+                  <p><strong>Please check our paper for detail results.</strong></p>
+                </div>
+              </div>
+            </div>
+
+              <div class="row">
+				  <h3 class="center">Citation</h3>
+                <div class="col l12 m12 s12">
+                  <p>
+					@inproceedings{yu2022high,<br>
+					  &nbsp;title={High-frequency guided CNN for video compression artifacts reduction},<br>
+					  &nbsp;author={Yu, Li and Chang, Wenshuai and Liu, Qingshan and Gabbouj, Moncef},<br>
+					  &nbsp;booktitle={2022 IEEE International Conference on Visual Communications and Image Processing (VCIP)},<br>
+					  &nbsp;pages={1--5},<br>
+					  &nbsp;year={2022},<br>
+					  &nbsp;organization={IEEE}<br>
+					}
+                 }</p>
+                </div>
+              </div>
+            </div>
+
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
