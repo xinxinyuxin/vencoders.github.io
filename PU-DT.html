@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <link rel="icon" type="image/x-icon" href="images/YH.png" />
+  <title>Panoramic image inpainting</title>
+  <!--Import Google Icon Font-->
+
+  <!--<link href="http://fonts.useso.com/icon?family=Material+Icons" rel="stylesheet">-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="css/main.css">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <style>
+    body
+    {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    .vertical-nav
+    {
+      margin: 0;
+      position: fixed;
+      width: 300px;
+      /*background-color: #343131;*/
+      min-height: 100%;
+      background-image: url("images/vertical_Nov19.jpg");
+      background-repeat: round;
+    }
+
+    .profile-block
+    {
+      position: relative;
+      height: 300px;
+      /*background-color: #324D5C;*/
+
+    }
+    .profile-block-sm
+    {
+      position: relative;
+      height: 200px;
+      /*background-color: #324D5C;*/
+
+    }
+
+    .profile
+    {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      margin-left: 30px;
+
+      border: solid 5px #F4D03F;
+    }
+
+    .profile-sm
+    {
+      /*position: absolute;*/
+      /*top: 50%;*/
+      /*left: 50%;*/
+      /*transform: translateX(50%);*/
+      border-radius: 50%;
+      margin: auto;
+
+      border: solid 5px #F4D03F;
+    }
+
+    .logo-link
+    {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .card-content
+    {
+      padding: 0 !important;
+    }
+
+    .card-title
+    {
+      background-color: #FBD8B0;
+      padding: 12px;
+    }
+
+    p
+    {
+      line-height: 150%;
+    }
+    li
+    {
+      padding-bottom: 10px;
+    }
+    strong
+    {
+      font-weight: bolder;
+    }
+    .project-item
+    {
+    }
+    .project-logo
+    {
+    }
+    .authors{
+      text-align: center;
+      width: 100%;
+      margin: auto;
+      font-size: 12pt;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    .author{
+      font-weight: bold;
+      display: inline;
+      padding: 0 1em;
+    }
+    h3{
+      font-size: xx-large;
+      display: block;
+      /*font-size: 1.5em;*/
+      margin-block-start: 0.83em;
+      margin-block-end: 0.83em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+    }
+    .bibtex {
+      padding-left: 20px;
+      font-family: Courier New, Courier, 'gandhi_sansregular', monospace;
+      white-space: pre;
+    }
+    ul.marked {list-style-type: circle !important;}
+    ul li::marker {
+      color: darkslategrey;
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+
+<div class="">
+  <div style="">
+    <div class="container">
+      <div class="">
+        <div class="row">
+          <div class="col s12 m12 l10 offset-l1">
+            <div class="title">
+              <h2 class="center" style="margin-top: 120px; font-size: 32pt">
+               Point cloud sampling based on Transformer
+              </h2>
+              <!-- <p class="center" style="font-size: large"><a href="https://arxiv.org/abs/2002.03711">[ arxiv.org/abs/2002.03711 ]</a> -->
+                <p class="center" style="font-size: large"><a href="https://github.com/Vencoders/PU-AT">[ Code ]</a>
+            </div>
+           <div class="authors">
+<!-- 			  <div class="author"><a href="https://huzi96.github.io/">Yueyu Hu</a></div><br class="hide-on-med-and-up"> -->
+              <div class="author">Li Yu {li.yu@nuist.edu.cn}</a></div><br class="hide-on-med-and-up">
+              <div class="author">Jiafu Zhang {20211249472@nuist.edu.cn}</a></div><br class="hide-on-med-and-up">
+            </div>
+			<div class="abstract">
+			  <h3 class="center">Abstract</h3>
+			  <ul style="font-size: 13pt; text-align: justify">
+			    <li>
+			      <div>
+			        <i class="material-icons tiny cyan-text">grade</i>
+			        The point clouds obtained by scanning sensors are often sparse and non-uniform, therefore, point cloud upsampling is of vital importance. This paper considers geometric priors as a rich source to guide point cloud generation for the better qualities. However, it is less flexible to explicitly exploit geometric priors of object surface, such as local geometric smoothness and fairness. In light of this, this paper proposes a novel two-stage method via discovering and exploiting implicit shape priors, which can consist of coarse point cloud upsampling and fine details refining. Specifically, at the first stage, we explore to discover geometric priors in an implicit manner via Dual Transformer, which simultaneously addressing local and global information during feature encoding, while a Neighborhood Refinement module is proposed to handle with geometric irregularities and noises via exploiting feature similarity of neighboring points. Extensive experiments on synthetic and real datasets can verify our motivation, as our method can gain superior performance to existing upsampling methods, especially with noisy point clouds. 
+			      </div>
+			        </li>
+			  </ul>
+			</div>
+            <div class="abstract">
+              <h3 class="center">Highlights</h3>
+              <ul style="font-size: 13pt; text-align: justify">
+                <li>
+                  <div>
+                    <i class="material-icons tiny cyan-text">grade</i>
+                    We propose a Transformer-based feature expansion module that can fully explore the latent feature space.
+                  </div>
+                    </li>
+                <li>
+                  <div>
+                    <i class="material-icons tiny  cyan-text">grade</i>
+                  We propose an adaptive refinement module that can adaptively correct outliers based on local geometric structures.
+                  </div>
+                    </li>
+                <li>
+                  <div>
+                    <i class="material-icons tiny  cyan-text">grade</i>
+                    Our method achieves better performance than the SOTA method on the synthetic dataset both qualitatively and quantitatively.
+                  </div>
+                     </li>
+              </ul>
+            </div>
+            <div class="experiment">
+
+              <div class="row">
+                <h3 class="center">Network Architecture</h3>
+                <div class="col l12 m12 s12">
+                  <img src="images/PU-AT1.jpg" class="responsive-img">
+                </div>
+
+                <div class="col l12 m12 s12">
+                  <p style="text-align: justify"><i class="material-icons tiny cyan-text">grade</i>The overall framework of our proposed method PU-AT
+                </div>
+              </div>
+			  
+             <div class="row">
+                <h3 class="center">Results</h3>
+                <div class="col l12 m12 s12">
+                  <img src="images/PU-ATResult.jpg" class="responsive-img">
+				          
+                </div>
+			
+			
+				  
+              <div class="row">
+                <div class="col l12 m12 s12">
+                  <p><strong>Please check our paper for detail results.</strong></p>
+                </div>
+              </div>
+            </div>
+
+              <div class="row">
+				  <h3 class="center">Citation</h3>
+                <div class="col l12 m12 s12">
+                  <p>
+					
+
+                 </p>
+                </div>
+              </div>
+            </div>
+
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
